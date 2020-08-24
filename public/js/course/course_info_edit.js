@@ -208,25 +208,3 @@ function buildLeaderSelectHtml(value, coursesId) {
   returnHtml += "</select>";
   return returnHtml;
 }
-
-function secondTeacherFormatter(value, row, index) {
-  var teacherName = "";
-  // console.log(row);
-  for(var i=0; i < teachers.length; i++) {
-    if(teachers[i].id == value) {
-      teacherName = teachers[i].teacher_name;
-    }
-  }
-    var returnHtml = "<select class='second-teacher-selection' id='second-teacher-selection-" + row.id + "'>";
-    for(var i=0; i < teachers.length; i++) {
-      var selected = "";
-      if(teachers[i].id  == value) {
-        selected = "selected";
-      }
-      returnHtml += "<option value='" + teachers[i].id + "' " + selected + ">" + teachers[i].teacher_name  + "</option>"
-    }
-    returnHtml += "</select>";
-      return [
-          returnHtml
-      ].join('');
-}

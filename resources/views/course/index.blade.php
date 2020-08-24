@@ -3,8 +3,7 @@
 @section('content')
 <div class="container">
     <div id="toolbar">
-        <button class="btn btn-success" id="export-score-report-btn">导出成绩</button>
-        <button class="btn btn-success" id="email-all-out-btn">发送所有邮件</button>
+        
     </div>
     <table id="courses-info" class="table table-condensed table-responsive">
         <thead>
@@ -27,25 +26,25 @@
                 <th data-field="teacher_name">
                     学科组长
                 </th>
-                <th data-field="course_leader_lesson_num" data-formatter="courseLeaderLessonNumFormatter">
+                <th data-field="course_leader_lesson_num">
                     组长课时
                 </th>
-                <th data-field="grade_1_lesson_num" data-formatter="grade1LessonNumFormatter">
+                <th data-field="grade_1_lesson_num">
                     1年级课时
                 </th>
-                <th data-field="grade_2_lesson_num" data-formatter="grade2LessonNumFormatter">
+                <th data-field="grade_2_lesson_num">
                     2年级课时
                 </th>
-                <th data-field="grade_3_lesson_num" data-formatter="grade3LessonNumFormatter">
+                <th data-field="grade_3_lesson_num">
                     3年级课时
                 </th>
-                <th data-field="grade_4_lesson_num" data-formatter="grade4LessonNumFormatter">
+                <th data-field="grade_4_lesson_num">
                     4年级课时
                 </th>
-                <th data-field="grade_5_lesson_num" data-formatter="grade5LessonNumFormatter">
+                <th data-field="grade_5_lesson_num">
                     5年级课时
                 </th>
-                <th data-field="grade_6_lesson_num" data-formatter="grade6LessonNumFormatter">
+                <th data-field="grade_6_lesson_num">
                     6年级课时
                 </th>
                 <th data-field="course_lesson_num">

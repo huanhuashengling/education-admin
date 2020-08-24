@@ -3,8 +3,7 @@
 @section('content')
 <div class="container" style="width: 100%">
     <div id="toolbar">
-        <button class="btn btn-success" id="export-score-report-btn">导出成绩</button>
-        <button class="btn btn-success" id="email-all-out-btn">发送所有邮件</button>
+        
     </div>
     <table id="edu-admin" class="table table-condensed table-responsive">
         <thead>

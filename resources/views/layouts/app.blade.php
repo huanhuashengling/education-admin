@@ -42,7 +42,7 @@
                     <li><a href="{{ url('/edu-admin/') }}">工作安排</a></li>
                     <li><a href="{{ url('/edu-admin-edit/') }}">工作安排修改</a></li>
                     <li><a href="{{ url('/teacher-info-edit/') }}">教师信息</a></li>
-                    <li><a href="{{ url('/sclass-info-edit/') }}">课程信息</a></li>
+                    <li><a href="{{ url('/sclass-info-edit/') }}">班级信息</a></li>
                     <li><a href="{{ url('/course-info/') }}">学科信息</a></li>
                     <li><a href="{{ url('/course-info-edit/') }}">学科信息修改</a></li>
                 </ul>

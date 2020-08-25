@@ -225,10 +225,13 @@ class EducationController extends Controller
             $GCLNum = GradeCourseLessonNum::select("lesson_num")
             ->where("grade_num", "=", $SCTItem->grade_num)
             ->where("courses_id", "=", $SCTItem->courses_id)
+            ->where("lesson_num", "<>", 0.5)
             ->first();
-
-            $returnData["courseLessonNum"] += $GCLNum->lesson_num;
-            $returnData["workloadDesc"] .= $SCTItem->class_name . "班". $SCTItem->course_name . $GCLNum->lesson_num . "节, ";
+            if (isset($GCLNum)) {
+              $returnData["courseLessonNum"] += $GCLNum->lesson_num;
+              $returnData["workloadDesc"] .= $SCTItem->class_name . "班". $SCTItem->course_name . $GCLNum->lesson_num . "节, ";
+            }
+            
           }
         }
       }

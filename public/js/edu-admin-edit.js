@@ -1,4 +1,4 @@
-var teachers;
+// var teachers;
 $(document).ready(function() {
   $.ajaxSetup({
     headers: {
@@ -6,15 +6,15 @@ $(document).ready(function() {
     }
   });
 
-  $.ajax({
-      type: "GET",
-      url: '/getTeachers',
-      data: {schoolsId: 1},
-      success: function( data ) {
-          // console.log(data);
-          this.teachers = data;
-      }
-  });
+  // $.ajax({
+  //     type: "GET",
+  //     url: '/getTeachers',
+  //     data: {schoolsId: 1},
+  //     success: function( data ) {
+  //         // console.log(data);
+  //         this.teachers = data;
+  //     }
+  // });
 
   $('#edu-admin').bootstrapTable({
       method: 'post', 
@@ -70,7 +70,18 @@ function operateFormatter(value, row, index) {
   }
   var teacherName = "";
   var coursesId = "";
+  var teachers = [];
   if (value != "") {
+      $.ajax({
+        type: "GET",
+        url: '/getTeachers',
+        data: {schoolsId: 1},
+        success: function( data ) {
+            // console.log(data);
+            teachers = data;
+        }
+      });
+
     teacherName = value.split("_")[0];
     coursesId = value.split("_")[1];
 

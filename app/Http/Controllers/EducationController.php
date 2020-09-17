@@ -88,7 +88,12 @@ class EducationController extends Controller
           report($e);
           return "error";
         }
-        
+      } else {
+        $SCT = new SclassCourseTeacher();
+        $SCT->sclasses_id = $sclassesId;
+        $SCT->courses_id = $coursesId;
+        $SCT->teachers_id = $teachersId;
+        $SCT->save();
       }
     }
 

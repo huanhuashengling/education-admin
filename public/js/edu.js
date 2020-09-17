@@ -44,6 +44,9 @@ $(document).ready(function() {
 
 function operateFormatter(value, row, index) {
   var result = "";
+  if (!value) {
+    return "";
+  }
   if (value != "") {
     result = value.split("_")[0];
   } 

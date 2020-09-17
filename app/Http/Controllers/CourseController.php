@@ -74,18 +74,21 @@ class CourseController extends Controller
 
       $GCLM = GradeCourseLessonNum::where("grade_num", "=", $gradeNum)
       ->where("courses_id", "=", $coursesId)->first();
-      $GCLM->lesson_num = $lessonNum;
-        $GCLM->update();
       if(isset($GCLM)) {
         $GCLM->lesson_num = $lessonNum;
-        $GCLM->update();
-        // try{
-        //   $GCLM->update();
-        //   return "true";
-        // } catch (Throwable $e) {
-        //   report($e);
-        //   return "error";
-        // }
+        try{
+          $GCLM->update();
+          return "true";
+        } catch (Throwable $e) {
+          report($e);
+          return "error";
+        }
+      } else {
+        $GCLM = new GradeCourseLessonNum();
+        $GCLM->courses_id = $coursesId;
+        $GCLM->grade_num = $gradeNum;
+        $GCLM->lesson_num = $lessonNum;
+        $GCLM->save();
       }
     }
 

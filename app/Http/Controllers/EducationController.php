@@ -28,7 +28,7 @@ class EducationController extends Controller
         $sclassesId = $sclass->id;
         $gradeCourseLessonNums = GradeCourseLessonNum::select("grade_course_lesson_nums.lesson_num", "courses.id as coursesId", "grade_course_lesson_nums.courses_id", "courses.basic_order")
         ->join("courses", 'courses.id', '=', 'courses_id')
-        ->where("grade_num", "=", $gradeNum)->get();
+        ->where("grade_num", "=", $gradeNum)->where("lesson_num", "<>", 0.0)->get();
         
         $gradeDataset = [];
         $gradeDataset["class_name"] = $sclass->class_name;
@@ -199,6 +199,7 @@ class EducationController extends Controller
           if (isset($SCTItem)) {
             $GCLNum = GradeCourseLessonNum::select("lesson_num")
             ->where("grade_num", "=", $SCTItem->grade_num)
+            ->where("lesson_num", "<>", 0.0)
             ->where("courses_id", "=", $SCTItem->courses_id)
             ->first();
 

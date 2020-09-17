@@ -65,9 +65,12 @@ $(document).ready(function() {
 });
 
 function operateFormatter(value, row, index) {
+  if (!value) {
+    return "";
+  }
   var teacherName = "";
   var coursesId = "";
-  if (value && value != "") {
+  if (value != "") {
     teacherName = value.split("_")[0];
     coursesId = value.split("_")[1];
   }

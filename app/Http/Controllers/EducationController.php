@@ -50,8 +50,8 @@ class EducationController extends Controller
             $gradeDataset["teachers_id_".$sclassCourseTeacher->teacher_name] = $sclassCourseTeacher->teachers_id;
             $gradeDataset["lesson_num_".$gradeCourseLessonNum->coursesId] = $gradeCourseLessonNum->lesson_num;
           } else {
-            $gradeDataset["teacher_name_".$gradeCourseLessonNum->coursesId] = "";
-            $gradeDataset["lesson_num_".$gradeCourseLessonNum->coursesId] = "";
+            $gradeDataset["teacher_name_".$gradeCourseLessonNum->coursesId] = " _" . $gradeCourseLessonNum->coursesId;
+            $gradeDataset["lesson_num_".$gradeCourseLessonNum->coursesId] = $gradeCourseLessonNum->lesson_num;
           }
           // $gradeDataset[] = $tData;
         }

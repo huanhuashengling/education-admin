@@ -90,6 +90,7 @@ class EducationController extends Controller
         }
       } else {
         $SCT = new SclassCourseTeacher();
+        $SCT->schools_id = 1;
         $SCT->sclasses_id = $sclassesId;
         $SCT->courses_id = $coursesId;
         $SCT->teachers_id = $teachersId;

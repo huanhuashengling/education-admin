@@ -45,10 +45,14 @@ class CourseController extends Controller
           $gradeCourseLessonNum = GradeCourseLessonNum::select("lesson_num")
           ->where("grade_num", "=", $i)
           ->where("courses_id", "=", $course->id)->first();
-          $tLessonNum += $gradeCourseLessonNum->lesson_num;
-          $tData["grade_" . $i . "_lesson_num"] = $gradeCourseLessonNum->lesson_num;
-          $courseGradeLessonNum["grade_" . $i . "_lesson_num"] += $gradeCourseLessonNum->lesson_num;
-          $courseGradeLessonNum["course_lesson_num"] += $gradeCourseLessonNum->lesson_num;
+          if(isset($gradeCourseLessonNum)) {
+            $tLessonNum += $gradeCourseLessonNum->lesson_num;
+            $tData["grade_" . $i . "_lesson_num"] = $gradeCourseLessonNum->lesson_num;
+            $courseGradeLessonNum["grade_" . $i . "_lesson_num"] += $gradeCourseLessonNum->lesson_num;
+            $courseGradeLessonNum["course_lesson_num"] += $gradeCourseLessonNum->lesson_num;
+          } else {
+            continue;
+          }
         }
         $tData["course_lesson_num"] = $tLessonNum;
         $dataset[] = $tData;

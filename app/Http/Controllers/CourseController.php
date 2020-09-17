@@ -76,14 +76,14 @@ class CourseController extends Controller
       ->where("courses_id", "=", $coursesId)->first();
       if(isset($GCLM)) {
         $GCLM->lesson_num = $lessonNum;
-        // $sclass->update();
-        try{
-          $GCLM->update();
-          return "true";
-        } catch (Throwable $e) {
-          report($e);
-          return "error";
-        }
+        $GCLM->update();
+        // try{
+        //   $GCLM->update();
+        //   return "true";
+        // } catch (Throwable $e) {
+        //   report($e);
+        //   return "error";
+        // }
       }
     }
 

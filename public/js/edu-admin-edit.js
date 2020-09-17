@@ -5,7 +5,7 @@ $.ajax({
     data: {schoolsId: 1},
     success: function( data ) {
         // console.log(data);
-        this.teachers = data;
+        teachers = data;
     }
 });
 $(document).ready(function() {

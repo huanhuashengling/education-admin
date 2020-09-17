@@ -86,7 +86,7 @@ function operateFormatter(value, row, index) {
     coursesId = value.split("_")[1];
 
     var returnHtml = "<select class='teacher-selection' id='teacher-selection-" + row["sclassesId"] + "-" + coursesId + "'>";
-    for(var i=0; i < this.teachers.length; i++) {
+    for(var i=0; i < teachers.length; i++) {
       var selected = "";
       if(teachers[i].id  == row["teachers_id_"+teacherName]) {
         selected = "selected";

@@ -65,6 +65,7 @@ $(document).ready(function() {
 });
 
 function operateFormatter(value, row, index) {
+  alert(value);
   if (value != "") {
     var teacherName = value.split("_")[0];
     var coursesId = value.split("_")[1];

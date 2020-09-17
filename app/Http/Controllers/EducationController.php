@@ -233,6 +233,7 @@ class EducationController extends Controller
             ->where("grade_num", "=", $SCTItem->grade_num)
             ->where("courses_id", "=", $SCTItem->courses_id)
             ->where("lesson_num", "<>", 0.5)
+            ->where("lesson_num", "<>", 0.0)
             ->first();
             if (isset($GCLNum)) {
               $returnData["courseLessonNum"] += $GCLNum->lesson_num;

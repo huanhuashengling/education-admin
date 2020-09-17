@@ -44,6 +44,7 @@ class CourseController extends Controller
         for ($i=1; $i <= 6; $i++) { 
           $gradeCourseLessonNum = GradeCourseLessonNum::select("lesson_num")
           ->where("grade_num", "=", $i)
+          ->where("lesson_num", "<>", 0.0)
           ->where("courses_id", "=", $course->id)->first();
           if(isset($gradeCourseLessonNum)) {
             $tLessonNum += $gradeCourseLessonNum->lesson_num;

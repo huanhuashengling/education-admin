@@ -65,10 +65,12 @@ $(document).ready(function() {
 });
 
 function operateFormatter(value, row, index) {
-  // alert(value);
-  if (value != "") {
-    var teacherName = value.split("_")[0];
-    var coursesId = value.split("_")[1];
+  var teacherName = "";
+  var coursesId = "";
+  if (value && value != "") {
+    teacherName = value.split("_")[0];
+    coursesId = value.split("_")[1];
+  }
     var returnHtml = "<select class='teacher-selection' id='teacher-selection-" + row["sclassesId"] + "-" + coursesId + "'>";
     for(var i=0; i < teachers.length; i++) {
       var selected = "";
@@ -81,9 +83,5 @@ function operateFormatter(value, row, index) {
       return [
           returnHtml
       ].join('');
-  } else {
-    return "";
-  }
-  
 }
 

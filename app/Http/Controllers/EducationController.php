@@ -204,7 +204,7 @@ class EducationController extends Controller
             ->first();
 
             $returnData["courseLessonNum"] += $GCLNum->lesson_num;
-            $returnData["workloadDesc"] .= $SCTItem->class_name . "班". $SCTItem->course_name . $GCLNum->lesson_num . "节, ";
+            $returnData["workloadDesc"] .= $SCTItem->class_name . "班". $SCTItem->course_name . intval($GCLNum->lesson_num) . "节, ";
           }
         }
       }
@@ -236,8 +236,12 @@ class EducationController extends Controller
             ->where("lesson_num", "<>", 0.0)
             ->first();
             if (isset($GCLNum)) {
+              $courseName = $SCTItem->course_name;
+              if ("1" == substr($courseName, -1)) {
+                $courseName = substr($courseName, 0, -1);
+              }
               $returnData["courseLessonNum"] += $GCLNum->lesson_num;
-              $returnData["workloadDesc"] .= $SCTItem->class_name . "班". $SCTItem->course_name . $GCLNum->lesson_num . "节, ";
+              $returnData["workloadDesc"] .= $SCTItem->class_name . "班". $courseName . intval($GCLNum->lesson_num) . "节, ";
             }
             
           }

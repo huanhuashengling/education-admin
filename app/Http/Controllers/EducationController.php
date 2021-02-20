@@ -110,7 +110,7 @@ class EducationController extends Controller
 
   public function getLessonReport() {
       $dataset = [];
-      $teachers = Teacher::orderBy("basic_order")->get();
+      $teachers = Teacher::where("is_lock", 0)->orderBy("basic_order")->get();
       foreach ($teachers as $key => $teacher) {
         $tData = [];
         $workloadDesc = "";
